@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="FinalAssignment.Views.OrdersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FinalAssignment.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="515">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView Name="OrderListView">
+            <ListView.View>
+                <GridView ColumnHeaderStringFormat="">
+                    <GridViewColumn Width="100" Header="Order Number"
+                                    DisplayMemberBinding="{Binding Path=OrderNumber}"/>
+                    <GridViewColumn Width="75" Header="Date Placed"
+                                    DisplayMemberBinding="{Binding Path=DatePlaced}"/>
+                    <GridViewColumn Width="75" Header="Purchaser"
+                                    DisplayMemberBinding="{Binding Path=Purchaser}"/>
+                    <GridViewColumn Width="75" Header="Order Total"
+                                    DisplayMemberBinding="{Binding Path=OrderTotal}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="75" Header="Item Number"
+                                    DisplayMemberBinding="{Binding Path=ItemNumber}"/>
+                    <GridViewColumn Width="75" Header="Item Name"
+                                    DisplayMemberBinding="{Binding Path=ItemName}"/>
+                    <GridViewColumn Width="75" Header="Item Cost"
+                                    DisplayMemberBinding="{Binding Path=ItemCost}"/>
+                    <GridViewColumn Width="125" Header="Quantity Purchased"
+                                    DisplayMemberBinding="{Binding Path=QuantityPurchased}"/>
+                    <GridViewColumn Width="125" Header="Cost Paid Per Item"
+                                    DisplayMemberBinding="{Binding Path=CostPaidPerItem}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>
