@@ -7,6 +7,45 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="515">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="145"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Content="Create New Order" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="2" Margin="0,-3,0,0"/>
+        <Label Grid.Row="1" Content="Order Number:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Width="200" HorizontalAlignment="Left" IsReadOnly="True" Height="25"/>
+        <Label Grid.Row="2" Content="Purchase Date:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="200" HorizontalAlignment="Left" Height="25"/>
+        <Label Grid.Row="3" Content="Purchaser:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="200" HorizontalAlignment="Left" Height="25"/>
+        <Label Grid.Row="4" Content="Order Total:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Width="200" HorizontalAlignment="Left" Height="25"/>
+        <Label Grid.Row="5" Content="Order Items" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+        <Button Grid.Row="8" Content="Save Order" Grid.ColumnSpan="2"/>
+        <ListView Grid.Row="6" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView ColumnHeaderStringFormat="">
+                    <GridViewColumn Width="100" Header="Order Number"
+                                    DisplayMemberBinding="{Binding Path=OrderNumber}"/>
+                    <GridViewColumn Width="75" Header="Quantity"
+                                    DisplayMemberBinding="{Binding Path=Quantity}"/>
+                    <GridViewColumn Width="75" Header="Cost Per Item"
+                                    DisplayMemberBinding="{Binding Path=CostPerItem}"/>
+                    <GridViewColumn Width="150" Header="Item"
+                                    DisplayMemberBinding="{Binding Path=Item}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
