@@ -24,7 +24,7 @@ namespace FinalAssignment.Views
         public InventoryView()
         {
             InitializeComponent();
-            DataContext = new InventoryViewModel(); 
+            //DataContext = new InventoryViewModel(); 
             //this line links the view with the view model... also need to add using FinalAssignment.ViewModels; at the top
         }
     }
