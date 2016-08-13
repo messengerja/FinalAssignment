@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using System.Collections.ObjectModel;
+using InventoryData;
 
 namespace FinalAssignment.ViewModels
 {
@@ -13,14 +14,12 @@ namespace FinalAssignment.ViewModels
         /// <summary>
         /// adds dummy data to the observable collection
         /// </summary>
-        public InventoryViewModel()
-        {           
-            _Inventory = new ObservableCollection<Item>();
-            _Inventory.Add(new Item() { ItemNumber = "100", Name = "Item1", Cost = "50.00", Quantity = "5" });
-            _Inventory.Add(new Item() { ItemNumber = "101", Name = "Item2", Cost = "60.00", Quantity = "12" });
-            _Inventory.Add(new Item() { ItemNumber = "102", Name = "Item3", Cost = "73.00", Quantity = "7" });
-            _Inventory.Add(new Item() { ItemNumber = "103", Name = "Item4", Cost = "24.00", Quantity = "13" });
-            _Inventory.Add(new Item() { ItemNumber = "104", Name = "Item5", Cost = "13.00", Quantity = "2" });
+        public InventoryViewModel(IInventoryData helper)    //dependency injection to get data from "InventoryData Project"??
+        {
+
+            IEnumerable<Item> inventory = helper.GetItems();
+            _Inventory = new ObservableCollection<Item> (inventory);
+           
         }
         
         private ObservableCollection<Item> _Inventory;
@@ -37,13 +36,13 @@ namespace FinalAssignment.ViewModels
         
     }
     //created ItemModel to hold dummy data
-   public class Item
-    {
-        public string ItemNumber { get; set; }
-        public string Name { get; set; }
-        public string Cost { get; set; }
-        public string Quantity { get; set; }
-    }
+   //public class Item
+   // {
+   //     public string ItemNumber { get; set; }
+   //     public string Name { get; set; }
+   //     public string Cost { get; set; }
+   //     public string Quantity { get; set; }
+   // }
     //assignment 11
     //o InventoryView/InventoryViewModel
     //     This view should show all available items in the database(faked for now) 
