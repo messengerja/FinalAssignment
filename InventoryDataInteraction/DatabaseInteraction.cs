@@ -27,14 +27,26 @@ namespace InventoryDataInteraction
 
 		public IEnumerable<Item> GetItems()
 		{
-			using (var db = new InventoryContext())
-			{
-				return (from item in db.Items
-						select item).ToList();
-			}
-		}
+            List<Item> list = new List<Item>();
+           
+            list.Add(new Item() { ItemNumber = 100, Name = "Item1", Cost = 50.00M, QuantityOnHand = 5 });
+            list.Add(new Item() { ItemNumber = 101, Name = "Item2", Cost = 60.00M, QuantityOnHand = 12 });
+            list.Add(new Item() { ItemNumber = 102, Name = "Item3", Cost = 73.00M, QuantityOnHand = 7 });
+            list.Add(new Item() { ItemNumber = 103, Name = "Item4", Cost = 24.00M, QuantityOnHand = 13 });
+            list.Add(new Item() { ItemNumber = 104, Name = "Item5", Cost = 13.00M, QuantityOnHand = 2 });
+            IEnumerable<Item> i = list;
+            return i;
 
-		public IEnumerable<OrderItem> GetOrderItems(int orderNumber)
+
+
+            //using (var db = new InventoryContext())
+            //{
+            //	return (from item in db.Items
+            //			select item).ToList();
+            //}
+        }
+
+        public IEnumerable<OrderItem> GetOrderItems(int orderNumber)
 		{
 			using (var db = new InventoryContext())
 			{
@@ -46,71 +58,77 @@ namespace InventoryDataInteraction
 
 		public bool SaveOrder(Order order)
 		{
-			if (order == null)
-				return false;
 
-			try
-			{
-				using (var db = new InventoryContext())
-				{
-					db.Orders.Add(order);
-					db.SaveChanges();
-				}
-				return true;
-			}
-			catch (Exception e)
-			{
-				return false;
-			}
+            return true; //not using this ...YET
+			//if (order == null)
+			//	return false;
+
+			//try
+			//{
+			//	using (var db = new InventoryContext())
+			//	{
+			//		db.Orders.Add(order);
+			//		db.SaveChanges();
+			//	}
+			//	return true;
+			//}
+			//catch (Exception e)
+			//{
+			//	return false;
+			//}
 		}
 
 		public bool SaveItem(Item item)
 		{
-			if (item == null)
-				return false;
+            return true; //not using this ...YET
 
-			try
-			{
-				using (var db = new InventoryContext())
-				{
-					db.Items.Add(item);
-					db.SaveChanges();
-				}
-				return true;
-			}
-			catch(Exception e)
-			{
-				return false;
-			}
-		}
+            //if (item == null)
+            //	return false;
+
+            //try
+            //{
+            //	using (var db = new InventoryContext())
+            //	{
+            //		db.Items.Add(item);
+            //		db.SaveChanges();
+            //	}
+            //	return true;
+            //}
+            //catch(Exception e)
+            //{
+            //	return false;
+            //}
+        }
 
 		public bool SaveOrderItem(int orderNumber, OrderItem orderItem)
 		{
-			if (orderItem == null)
-				return false;
+            return true; //not using this ...YET
 
-			try
-			{
-				using (var db = new InventoryContext())
-				{
-					var order = (from o in db.Orders
-								 where o.OrderNumber == orderNumber
-								 select o).SingleOrDefault();
+   //         if (orderItem == null)
+			//	return false;
 
-					if (order == null)
-						return false;
+			//try
+			//{
+			//	using (var db = new InventoryContext())
+			//	{
+			//		var order = (from o in db.Orders
+			//					 where o.OrderNumber == orderNumber
+			//					 select o).SingleOrDefault();
 
-					order.OrderItems.Add(orderItem);
-					db.OrderItems.Add(orderItem);
-					db.SaveChanges();
-				}
+			//		if (order == null)
+			//			return false;
 
-				return true;
-			}
-			catch(Exception e)
-			{
-				return false;
-			}
+			//		order.OrderItems.Add(orderItem);
+			//		db.OrderItems.Add(orderItem);
+			//		db.SaveChanges();
+			//	}
+
+			//	return true;
+			//}
+			//catch(Exception e)
+			//{
+			//	return false;
+			//}
 		}
 
 		public IEnumerable<User> GetUsers()
@@ -124,22 +142,24 @@ namespace InventoryDataInteraction
 
 		public bool SaveUser(User user)
 		{
-			if (user == null)
-				return false;
+            return true; //not using this ...YET
 
-			try
-			{
-				using (var db = new InventoryContext())
-				{
-					db.Users.Add(user);
-					db.SaveChanges();
-				}
-				return true;
-			}
-			catch (Exception e)
-			{
-				return false;
-			}
+   //         if (user == null)
+			//	return false;
+
+			//try
+			//{
+			//	using (var db = new InventoryContext())
+			//	{
+			//		db.Users.Add(user);
+			//		db.SaveChanges();
+			//	}
+			//	return true;
+			//}
+			//catch (Exception e)
+			//{
+			//	return false;
+			//}
 		}
 
 		public IEnumerable<Order> GetUserOrders(int userId)
