@@ -8,32 +8,45 @@
              d:DesignHeight="300" d:DesignWidth="515">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="145"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Content="Create New Order" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="2" Margin="0,-3,0,0"/>
-        <Label Grid.Row="1" Content="Order Number:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Width="200" HorizontalAlignment="Left" IsReadOnly="True" Height="25"/>
-        <Label Grid.Row="2" Content="Purchase Date:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Width="200" HorizontalAlignment="Left" Height="25"/>
-        <Label Grid.Row="3" Content="Purchaser:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Width="200" HorizontalAlignment="Left" Height="25"/>
-        <Label Grid.Row="4" Content="Order Total:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Width="200" HorizontalAlignment="Left" Height="25"/>
-        <Label Grid.Row="5" Content="Order Items" HorizontalAlignment="Left" Margin="5,0,0,0"/>
-        <Button Grid.Row="8" Content="Save Order" Grid.ColumnSpan="2"/>
-        <ListView Grid.Row="6" Grid.ColumnSpan="2">
+        <Label Grid.Row="0" Content="Create New Order" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="8" Margin="0,-6,0,0"/>
+        <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Content="Order Number:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <TextBox x:Name="OrderNumber" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" Width="200" HorizontalAlignment="Left" IsReadOnly="True" Height="20" Text="{Binding Path=NewOrder[0].OrderNumber, Mode=TwoWay}"/>
+        <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Content="Purchase Date:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4" Width="200" HorizontalAlignment="Left" Height="20" Text="{Binding Path=NewOrder[0].DatePlaced, Mode=TwoWay}"/>
+        <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Content="Purchaser:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <TextBox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Width="200" HorizontalAlignment="Left" Height="20" Text="{Binding Path=NewOrder[0].Purchaser, Mode=TwoWay}"/>
+        <Label Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Content="Order Total:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="4" Width="200" HorizontalAlignment="Left" Height="20" Text="{Binding Path=NewOrder[0].TotalCost, Mode=TwoWay}"/>
+        <Label Grid.Row="5" Grid.ColumnSpan="2" Content="Order Items" HorizontalAlignment="Left" Margin="3,0,0,0"/>
+        <Label Grid.Row="5" Grid.Column="1" Content="Quantity" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Path = NewOrderItemQuantity, Mode=TwoWay}" />
+        <Label Grid.Row="5" Grid.Column="3" Content="Item Cost" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="5" Grid.Column="4" Text="{Binding ElementName=ItemList, Path=SelectedItem.Cost}" IsReadOnly="True"/>
+        <Label Grid.Row="5" Grid.Column="5" Content="Item" HorizontalAlignment="Right"/>
+        <ComboBox x:Name="ItemList"  Grid.Row="5" Grid.Column="6" ItemsSource="{Binding Path = Items, Mode=TwoWay}" SelectedItem="{Binding Path = SelectedItem, Mode=TwoWay}" DisplayMemberPath="Name"/>
+        <Button x:Name="SaveClick" Grid.Row="5" Grid.Column="7" Content="Save Item"/>
+        <Button x:Name="SaveOrder" Grid.Row="8" Content="Save Order" Grid.ColumnSpan="8"/>
+        <ListView Grid.Row="6" Grid.ColumnSpan="8" ItemsSource="{Binding Path=NewOrderItem}">
             <ListView.View>
                 <GridView ColumnHeaderStringFormat="">
                     <GridViewColumn Width="100" Header="Order Number"
@@ -41,9 +54,9 @@
                     <GridViewColumn Width="75" Header="Quantity"
                                     DisplayMemberBinding="{Binding Path=Quantity}"/>
                     <GridViewColumn Width="75" Header="Cost Per Item"
-                                    DisplayMemberBinding="{Binding Path=CostPerItem}"/>
+                                    DisplayMemberBinding="{Binding Path=ItemCost}"/>
                     <GridViewColumn Width="150" Header="Item"
-                                    DisplayMemberBinding="{Binding Path=Item}"/>
+                                    DisplayMemberBinding="{Binding Path=Item.Name}"/>
                 </GridView>
             </ListView.View>
         </ListView>
