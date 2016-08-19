@@ -29,9 +29,7 @@ namespace FinalAssignment.ViewModels
                 return _Orders;
             }
         }
-
-        InventoryViewModel items = new InventoryViewModel();
-
+        
     }
 
     public class Order
