@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListView Name="InventoryListView">
+        <ListView Name="InventoryListView" ItemsSource="{Binding Path=Inventory}">
             <ListView.View>
                 <GridView ColumnHeaderStringFormat="">
                     <GridViewColumn Width="100" Header="Item Number"
@@ -20,10 +20,9 @@
                     <GridViewColumn Width="75" Header="Cost"
                                     DisplayMemberBinding="{Binding Path=Cost}"/>
                     <GridViewColumn Width="150" Header="Quantity on Hand"
-                                    DisplayMemberBinding="{Binding Path=QuantityOnHand}"/>
+                                    DisplayMemberBinding="{Binding Path=Quantity}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        
     </Grid>
 </UserControl>

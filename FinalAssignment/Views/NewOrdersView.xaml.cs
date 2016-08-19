@@ -24,5 +24,10 @@ namespace FinalAssignment.Views
         {
             InitializeComponent();
         }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

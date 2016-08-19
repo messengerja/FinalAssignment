@@ -28,6 +28,7 @@ namespace InventoryData
 		/// <remarks>You will need to populate the item records for each order item as well</remarks>
 		IEnumerable<OrderItem> GetOrderItems(int orderNumber);
 
+        IEnumerable<User> GetUsers();
 		/// <summary>
 		/// Saves the given order to the database
 		/// </summary>

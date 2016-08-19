@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FinalAssignment.ViewModels;
 
 namespace FinalAssignment.Views
 {
@@ -23,6 +24,8 @@ namespace FinalAssignment.Views
         public InventoryView()
         {
             InitializeComponent();
+            
+            //this line links the view with the view model... also need to add using FinalAssignment.ViewModels; at the top
         }
     }
 }

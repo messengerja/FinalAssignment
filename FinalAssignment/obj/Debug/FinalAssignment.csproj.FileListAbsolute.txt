@@ -27,3 +27,13 @@ C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssig
 C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\obj\Debug\Views\OrdersView.g.cs
 C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\obj\Debug\Views\NewOrdersView.baml
 C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\obj\Debug\Views\OrdersView.baml
+C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\InventoryData.dll
+C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\InventoryDataInteraction.dll
+C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\InventoryDataMapping.dll
+C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\EntityFramework.dll
+C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\InventoryDataInteraction.pdb
+C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\InventoryDataMapping.pdb
+C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\InventoryData.pdb
+C:\Users\Justin\Documents\Visual Studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\EntityFramework.xml
+C:\Users\Justin\documents\visual studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Justin\documents\visual studio 2015\Projects\FinalAssignment\FinalAssignment\bin\Debug\EntityFramework.SqlServer.xml

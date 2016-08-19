@@ -4,9 +4,9 @@ namespace FinalAssignment
 	using System.Collections.Generic;
 	using Caliburn.Micro;
 	using FinalAssignment.ViewModels;
-	//using InventoryData;
-	//using InventoryDataInteraction;
-	//using Common.Interfaces;
+	using InventoryData;
+	using InventoryDataInteraction;
+	
 
 	public class AppBootstrapper : BootstrapperBase
 	{
@@ -33,7 +33,7 @@ namespace FinalAssignment
 			container.PerRequest<NewOrdersViewModel>();
 			container.PerRequest<OrdersViewModel>();
 
-			//container.Singleton<IInventoryData, DatabaseInteraction>();
+			container.Singleton<IInventoryData, DatabaseInteraction>();
 		}
 
 		protected override object GetInstance(Type service, string key)

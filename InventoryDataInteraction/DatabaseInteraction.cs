@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace InventoryDataInteraction
 {
@@ -16,23 +17,24 @@ namespace InventoryDataInteraction
 
 		public IEnumerable<Order> GetOrders()
 		{
-			using(var db = new InventoryContext())
+            using(var db = new InventoryContext())
 			{
 				return (from order in db.Orders.Include("OrderItems")
-											   .Include("OrderItems.Item")
-											   .Include("Purchaser")
-						select order).ToList();
+                            .Include("OrderItems.Item")
+                            .Include("Purchaser")
+                        select order).ToList();
 			}
-		}
+            
+        }
 
-		public IEnumerable<Item> GetItems()
+        public IEnumerable<Item> GetItems()
 		{
-			using (var db = new InventoryContext())
-			{
-				return (from item in db.Items
-						select item).ToList();
-			}
-		}
+            using (var db = new InventoryContext())
+            {
+            	return (from item in db.Items
+            			select item).ToList();
+            }
+        }
 
 		public IEnumerable<OrderItem> GetOrderItems(int orderNumber)
 		{
@@ -60,7 +62,8 @@ namespace InventoryDataInteraction
 			}
 			catch (Exception e)
 			{
-				return false;
+                Debug.Assert(false, "Catched, Order wasn't null {0}", e.ToString());
+                return false;
 			}
 		}
 

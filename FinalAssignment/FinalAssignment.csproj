@@ -47,7 +47,16 @@
       <HintPath>..\packages\Caliburn.Micro.3.0.1\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -140,6 +149,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryDataInteraction\InventoryDataInteraction.csproj">
+      <Project>{f5bf90ba-a083-41c9-b1a4-f3bf6d66c132}</Project>
+      <Name>InventoryDataInteraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryDataMapping\InventoryDataMapping.csproj">
+      <Project>{330acf0b-9109-4727-8b10-bff65701cbd6}</Project>
+      <Name>InventoryDataMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryData\InventoryData.csproj">
+      <Project>{826b2519-74ad-4f7b-ab77-9529ff38a88a}</Project>
+      <Name>InventoryData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
