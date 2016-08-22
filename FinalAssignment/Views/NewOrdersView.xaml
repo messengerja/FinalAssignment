@@ -36,12 +36,12 @@
         <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Content="Purchaser:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
         <ComboBox x:Name="UserList" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Width="200" HorizontalAlignment="Left" Height="20" ItemsSource="{Binding Path = Users, Mode=TwoWay}" SelectedItem="{Binding Path = SelectedUser, Mode=TwoWay}" DisplayMemberPath="Name"/>
         <Label Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Content="Order Total:" HorizontalAlignment="Right" Margin="0,0,5,0"/>
-        <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="4" Width="200" HorizontalAlignment="Left" Height="20" Text="{Binding Path=NewOrder[0].TotalCost, Mode=TwoWay}"/>
+        <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="4" Width="200" HorizontalAlignment="Left" Height="20" IsReadOnly="True" Text="{Binding Path=NewOrder[0].TotalCost, Mode=TwoWay, StringFormat='$#,##0.00;$(#,##0.00)'}" />
         <Label Grid.Row="5" Grid.ColumnSpan="2" Content="Order Items" HorizontalAlignment="Left" Margin="3,0,0,0"/>
         <Label Grid.Row="5" Grid.Column="1" Content="Quantity" HorizontalAlignment="Right"/>
         <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Path = NewOrderItemQuantity, Mode=TwoWay}" />
         <Label Grid.Row="5" Grid.Column="3" Content="Item Cost" HorizontalAlignment="Right"/>
-        <TextBox Grid.Row="5" Grid.Column="4" Text="{Binding ElementName=ItemList, Path=SelectedItem.Cost}" IsReadOnly="True"/>
+        <TextBox Grid.Row="5" Grid.Column="4" Text="{Binding ElementName=ItemList, Path=SelectedItem.Cost, StringFormat='$#,##0.00;$(#,##0.00)'}" IsReadOnly="True"/>
         <Label Grid.Row="5" Grid.Column="5" Content="Item" HorizontalAlignment="Right"/>
         <ComboBox x:Name="ItemList"  Grid.Row="5" Grid.Column="6" ItemsSource="{Binding Path = Items, Mode=TwoWay}" SelectedItem="{Binding Path = SelectedItem, Mode=TwoWay}" DisplayMemberPath="Name"/>
         <Button x:Name="SaveClick" Grid.Row="5" Grid.Column="7" Content="Save Item"/>
@@ -54,7 +54,7 @@
                     <GridViewColumn Width="75" Header="Quantity"
                                     DisplayMemberBinding="{Binding Path=Quantity}"/>
                     <GridViewColumn Width="75" Header="Cost Per Item"
-                                    DisplayMemberBinding="{Binding Path=ItemCost}"/>
+                                    DisplayMemberBinding="{Binding Path=ItemCost, StringFormat='$#,##0.00;$(#,##0.00)'}"/>
                     <GridViewColumn Width="150" Header="Item"
                                     DisplayMemberBinding="{Binding Path=Item.Name}"/>
                 </GridView>
