@@ -7,6 +7,7 @@ using Caliburn.Micro;
 using InventoryData;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Windows;
 
 namespace FinalAssignment.ViewModels
 {
@@ -15,6 +16,9 @@ namespace FinalAssignment.ViewModels
         
         public NewOrdersViewModel(IInventoryData helper)
         {
+            IEnumerable<Order> gamma = helper.GetOrders();
+            Orders = new ObservableCollection<Order>(gamma);
+            OrderNumber = Orders.Count() + 1;
 
             _NewOrderItem = new ObservableCollection<OrderItem>();
             _NewOrder = new ObservableCollection<Order>();
@@ -27,7 +31,7 @@ namespace FinalAssignment.ViewModels
             Users = new ObservableCollection<User>(kappa);
         }
 
-        int OrderNumber = 42;
+        public int OrderNumber;
         
         private short _NewOrderItemQuantity;
         public short NewOrderItemQuantity
@@ -148,7 +152,8 @@ namespace FinalAssignment.ViewModels
         }
 
         public IInventoryData DataManager { get; set; }
-        
+        public ObservableCollection<Order> Orders { get; private set; }
+
         public void SaveClick()
         {
             _NewOrderItem.Add(new OrderItem() { Item = SelectedItem, ItemCost = SelectedItem.Cost, ItemNumber = SelectedItem.ItemNumber, OrderNumber = OrderNumber, Quantity = NewOrderItemQuantity, OrderItemNumber = OrderItemNumber, Order = _NewOrder.ElementAt(0) });
@@ -177,12 +182,10 @@ namespace FinalAssignment.ViewModels
                 DataManager.SaveOrderItem(OrderNumber, element);
             }
 
-            //Create an OrderItem with the attributes from outside
-            //Use SaveOrderItem to a collection in DatabaseInteraction
-            //Use GetOrderItems in viewmodel from a collection in Database Interaction for the listview
-            //Update total cost
-            //_Items.Add(new OrderItem() { OrderNumber = OrderNumber, });
-            //  TotalCost =
+            MessageBox.Show("Order Saved");
+
+            Refresh(); //trying to clear the fields.
+            
         }
 
     }
